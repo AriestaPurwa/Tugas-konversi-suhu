@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'temperature_provider.dart'; 
 import 'login_screen.dart';
 
 void main() {
-  runApp(const TemperatureConverterApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => TemperatureProvider(),
+      child: const TemperatureConverterApp(),
+    ),
+  );
 }
+
 
 class TemperatureConverterApp extends StatelessWidget {
   const TemperatureConverterApp({super.key});
